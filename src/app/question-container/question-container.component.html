@@ -1,0 +1,56 @@
+<!--1-Respuesta correcta-->
+<div *ngIf="!gameOver">
+
+    <!--1.1-Pregunta de capital-->
+    <div *ngIf="(numQuestion)%2!=0">
+        <h3 id="question">{{answer.capital}} is the capital of</h3>
+        <!-- <h3 id="question">United States Minor Outlying Islands</h3> -->
+        <div id="optionsContainer" class="optionsContainer">
+            <button value="{{options[0].name}}" class="option"
+                (click)="getResponse(options[0].name)">{{options[0].name}}</button>
+            <button value="{{options[1].name}}" class="option"
+                (click)="getResponse(options[1].name)">{{options[1].name}}</button>
+            <button value="{{options[2].name}}" class="option"
+                (click)="getResponse(options[2].name)">{{options[2].name}}</button>
+            <button value="{{options[3].name}}" class="option"
+                (click)="getResponse(options[3].name)">{{options[3].name}}</button>
+            <div id="buttonContainer" class="buttonContainer">
+                <button class="nextBtn" (click)="nextQuestion()">next</button>
+            </div>
+            <p class="currentQuestion">{{numQuestion}}/10</p>
+        </div>
+    </div>
+
+    <!--1.1-Pregunta de bandera-->
+    <div *ngIf="(numQuestion)%2==0">
+        <img class="flag" src="{{answer.flag}}">
+        <h3 id="question">which country does this flag belong to?</h3>
+        <div id="optionsContainer" class="optionsContainer">
+            <button value="{{options[0].name}}" class="option"
+                (click)="getResponse(options[0].name)">{{options[0].name}}</button>
+            <button value="{{options[1].name}}" class="option"
+                (click)="getResponse(options[1].name)">{{options[1].name}}</button>
+            <button value="{{options[2].name}}" class="option"
+                (click)="getResponse(options[2].name)">{{options[2].name}}</button>
+            <button value="{{options[3].name}}" class="option"
+                (click)="getResponse(options[3].name)">{{options[3].name}}</button>
+            <div id="buttonContainer" class="buttonContainer">
+                <button class="nextBtn" (click)="nextQuestion()">next</button>
+            </div>
+            <p class="currentQuestion">{{numQuestion}}/10</p>
+        </div>
+    </div>
+</div>
+
+<!--2-Respuesta incorrecta-->
+
+<div *ngIf="gameOver">
+    <div class="result">
+        <div class="box">
+            <img id="winnerImg" src="../../assets/images/undraw_winners_ao2o 2.svg">
+            <h2 class="subTitle">Results</h2>
+            <p class="score">You got <span class="scoreNum">{{numCorrectAnwers}}/10</span> correct answers</p>
+            <button class="option" (click)="refreshPage()">Try Again</button>
+        </div>
+    </div>
+</div>

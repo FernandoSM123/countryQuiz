@@ -1,0 +1,9 @@
+<header>
+    <h1 id="title">quiz country</h1>
+    <img id="headerImg" src="../../assets/images/undraw_adventure_4hum 1.svg">
+</header>
+<div class="subContainer">
+    <div *ngIf="countries">
+        <app-question-container [countryList]="countries"></app-question-container>
+    </div>
+</div>
