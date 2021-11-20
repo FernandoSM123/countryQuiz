@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class CountryService {
 
-  private regions:String[]
+  private regions:String[];
+  private static readonly cors = "https://cors-anywhere-venky.herokuapp.com/";
 
   constructor(
     private http:HttpClient
@@ -19,7 +20,7 @@ export class CountryService {
 
   getCountriesByRegion():Observable<any> {
     var region:String=this.regions[Math.floor(Math.random() * this.regions.length)];
-    const path = 'https://restcountries.eu/rest/v2/region/Americas?fields=name;capital;flag';
+    const path = 'https://restcountries.com/v2/region/Americas?fields=name,capital,flag';
     return this.http.get(path);
   }
 }
